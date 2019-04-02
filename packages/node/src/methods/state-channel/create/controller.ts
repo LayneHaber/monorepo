@@ -1,6 +1,6 @@
 import MinimumViableMultisig from "@counterfactual/contracts/build/MinimumViableMultisig.json";
 import ProxyFactory from "@counterfactual/contracts/build/ProxyFactory.json";
-import { xkeysToSortedKthAddresses } from "@counterfactual/machine";
+import { xkeysToSortedKthAddresses } from "../../../machine";
 import { NetworkContext, Node } from "@counterfactual/types";
 import { Contract, Event, Signer } from "ethers";
 import { TransactionReceipt, TransactionResponse } from "ethers/providers";

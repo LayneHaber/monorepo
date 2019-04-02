@@ -20,7 +20,8 @@ import {
   UninstallParams,
   UninstallVirtualAppParams,
   UpdateParams,
-  WithdrawParams
+  WithdrawParams,
+  TakeActionParams
 } from "./types";
 import {
   xkeyKthAddress,
@@ -52,6 +53,7 @@ export {
   InstallVirtualAppParams,
   UninstallVirtualAppParams,
   Transaction,
+  TakeActionParams,
   xkeyKthAddress,
   xkeyKthHDNode,
   xkeysToSortedKthAddresses,

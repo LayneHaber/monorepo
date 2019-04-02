@@ -1,4 +1,4 @@
-import { StateChannel } from "@counterfactual/machine";
+import { StateChannel } from "./machine";
 import { Address } from "@counterfactual/types";
 import { BigNumber, hashMessage } from "ethers/utils";
 

@@ -2,7 +2,7 @@ import {
   InstructionExecutor,
   StateChannel,
   xkeysToSortedKthAddresses
-} from "@counterfactual/machine";
+} from "../../src/machine";
 import { AssetType } from "@counterfactual/types";
 import { Wallet } from "ethers";
 import { HashZero, Zero } from "ethers/constants";

@@ -1,4 +1,4 @@
-import { InstructionExecutor } from "@counterfactual/machine";
+import { InstructionExecutor } from "./machine";
 import { NetworkContext, Node } from "@counterfactual/types";
 import { Signer } from "ethers";
 import { BaseProvider, JsonRpcProvider } from "ethers/providers";

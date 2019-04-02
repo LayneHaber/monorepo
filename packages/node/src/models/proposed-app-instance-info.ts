@@ -3,7 +3,7 @@ import {
   StateChannel,
   xkeyKthAddress,
   xkeysToSortedKthAddresses
-} from "@counterfactual/machine";
+} from "../machine";
 import {
   Address,
   AppABIEncodings,
@@ -47,7 +47,7 @@ export interface ProposedAppInstanceInfoJSON {
 /**
  * The @counterfactual/cf.js package has a concept of an `AppInstanceInfo`:
  * https://github.com/counterfactual/monorepo/blob/master/packages/cf.js/API_REFERENCE.md#data-type-appinstanceinfo.
- * This is a simplified, client-side representation of what the @counterfactual/machine package calls an `AppInstance`.
+ * This is a simplified, client-side representation of what the machine calls an `AppInstance`.
  *
  * When an `AppInstanceInfo` is proposed to be installed by a client running the `cf.js`
  * package, the Node receives some state indicating the parameters of the proposal.

@@ -1,4 +1,4 @@
-import { AppInstance, StateChannel } from "@counterfactual/machine";
+import { AppInstance, StateChannel } from "../../../machine";
 import { AppInstanceInfo } from "@counterfactual/types";
 
 import { Store } from "../../../store";

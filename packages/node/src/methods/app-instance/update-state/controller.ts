@@ -1,4 +1,4 @@
-import { InstructionExecutor, StateChannel } from "@counterfactual/machine";
+import { InstructionExecutor, StateChannel } from "../../../machine";
 import { Node, SolidityABIEncoderV2Struct } from "@counterfactual/types";
 import { INVALID_ARGUMENT } from "ethers/errors";
 import Queue from "p-queue";

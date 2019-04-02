@@ -3,7 +3,7 @@ import {
   StateChannel,
   StateChannelJSON,
   Transaction
-} from "@counterfactual/machine";
+} from "./machine";
 import {
   Address,
   AppInstanceInfo,

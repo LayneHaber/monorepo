@@ -1,4 +1,4 @@
-import { xkeyKthAddress } from "@counterfactual/machine";
+import { xkeyKthAddress } from "../../src/machine";
 import { Node as NodeTypes } from "@counterfactual/types";
 import { JsonRpcProvider } from "ethers/providers";
 import { v4 as generateUUID } from "uuid";

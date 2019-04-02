@@ -3,7 +3,7 @@ import {
   Opcode,
   Protocol,
   ProtocolMessage
-} from "@counterfactual/machine";
+} from "./machine";
 import { NetworkContext, Node as NodeTypes } from "@counterfactual/types";
 import { BaseProvider } from "ethers/providers";
 import { SigningKey } from "ethers/utils";

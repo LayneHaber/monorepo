@@ -1,4 +1,4 @@
-import { StateChannel, virtualChannelKey } from "@counterfactual/machine";
+import { StateChannel, virtualChannelKey } from "../../../machine";
 import { Address, Node } from "@counterfactual/types";
 
 import { ProposedAppInstanceInfo } from "../../../models";

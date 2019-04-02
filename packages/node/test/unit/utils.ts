@@ -1,4 +1,4 @@
-import { AppInstance } from "@counterfactual/machine";
+import { AppInstance } from "../../src/machine";
 import {
   AppABIEncodings,
   AssetType,
