@@ -1,5 +1,4 @@
 import { InstructionExecutor } from "../../../machine";
-
 import { Store } from "../../../store";
 
 export async function uninstallAppInstanceFromChannel(

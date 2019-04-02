@@ -1,4 +1,6 @@
 {
   "extends": ["../../tslint.json"],
-  "object-literal-shorthand": false
+  "rules": {
+    "object-literal-shorthand": false
+  }
 }

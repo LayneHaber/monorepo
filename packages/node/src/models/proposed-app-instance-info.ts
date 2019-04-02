@@ -1,10 +1,4 @@
 import {
-  AppInstance,
-  StateChannel,
-  xkeyKthAddress,
-  xkeysToSortedKthAddresses
-} from "../machine";
-import {
   Address,
   AppABIEncodings,
   AppInstanceInfo,
@@ -16,6 +10,13 @@ import {
 } from "@counterfactual/types";
 import { AddressZero } from "ethers/constants";
 import { BigNumber, bigNumberify } from "ethers/utils";
+
+import {
+  AppInstance,
+  StateChannel,
+  xkeyKthAddress,
+  xkeysToSortedKthAddresses
+} from "../machine";
 
 export interface IProposedAppInstanceInfo {
   appId: Address;
