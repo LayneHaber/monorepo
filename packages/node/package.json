@@ -7,8 +7,9 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc -p . && rollup -c",
-    "test-machine": "scripts/test.sh",
-    "test": "jest --setupFiles dotenv-extended/config --runInBand --bail --forceExit",
+    "test": "yarn run test:non-machine",
+    "test:machine": "scripts/test.sh",
+    "test:non-machine": "jest --testPathIgnorePatterns=test/machine --setupFiles dotenv-extended/config --runInBand --bail --forceExit",
     "test:coverage": "jest --runInBand --detectOpenHandles --bail --coverage",
     "lint:fix": "tslint -c tslint.json -p . --fix",
     "lint": "tslint -c tslint.json -p ."
