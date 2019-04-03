@@ -16,6 +16,7 @@ import { xkeysToSortedKthSigningKeys } from "../../src/xkeys";
 import { toBeEq } from "./bignumber-jest-matcher";
 import { connectToGanache } from "./connect-ganache";
 import { getRandomHDNodes } from "./random-signing-keys";
+import { makeNetworkContext } from "./make-network-context";
 
 // To be honest, 30000 is an arbitrary large number that has never failed
 // to reach the done() call in the test case, not intelligently chosen
@@ -39,38 +40,7 @@ expect.extend({ toBeEq });
 beforeAll(async () => {
   [provider, wallet, {}] = await connectToGanache();
 
-  const preNetworkContext = {} as any;
-
-  const networkContextProps = [
-    "AppRegistry",
-    "ETHBalanceRefundApp",
-    "ETHBucket",
-    "MultiSend",
-    "NonceRegistry",
-    "StateChannelTransaction",
-    "ETHVirtualAppAgreement",
-    "MinimumViableMultisig",
-    "ProxyFactory"
-  ];
-
-  const deployedContracts = require("../../networks/8888888.json");
-
-  deployedContracts.forEach((val: any) => {
-    const { contractName, address } = val;
-    if (networkContextProps.includes(contractName)) {
-      preNetworkContext[contractName] = address;
-    }
-  });
-
-  for (const contractName of networkContextProps) {
-    if (!preNetworkContext[contractName]) {
-      throw Error(
-        `Could not construct network context, ${contractName} not found`
-      );
-    }
-  }
-
-  network = preNetworkContext as NetworkContext;
+  network = makeNetworkContext();
 
   appRegistry = new Contract(network.AppRegistry, AppRegistry.abi, wallet);
 });

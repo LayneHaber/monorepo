@@ -1,10 +1,4 @@
-import AppRegistry from "@counterfactual/contracts/build/AppRegistry.json";
-import ETHBucket from "@counterfactual/contracts/build/ETHBucket.json";
-import ETHVirtualAppAgreement from "@counterfactual/contracts/build/ETHVirtualAppAgreement.json";
-import MultiSend from "@counterfactual/contracts/build/MultiSend.json";
-import NonceRegistry from "@counterfactual/contracts/build/NonceRegistry.json";
 import ResolveToPay5WeiApp from "@counterfactual/contracts/build/ResolveToPay5WeiApp.json";
-import StateChannelTransaction from "@counterfactual/contracts/build/StateChannelTransaction.json";
 import { xkeyKthAddress } from "@counterfactual/machine/src";
 import { sortAddresses } from "@counterfactual/machine/src/xkeys";
 import { AssetType, NetworkContext } from "@counterfactual/types";
@@ -17,11 +11,10 @@ import { toBeEq } from "./bignumber-jest-matcher";
 import { connectToGanache } from "./connect-ganache";
 import { MessageRouter } from "./message-router";
 import { MiniNode } from "./mininode";
-import { WaffleLegacyOutput } from "./waffle-type";
+import { makeNetworkContext } from "./make-network-context";
 
 const JEST_TEST_WAIT_TIME = 50000;
 
-let networkId: number;
 let network: NetworkContext;
 let provider: JsonRpcProvider;
 let wallet: Wallet;
@@ -30,28 +23,10 @@ let appDefinition: Contract;
 expect.extend({ toBeEq });
 
 beforeAll(async () => {
-  [provider, wallet, networkId] = await connectToGanache();
+  [provider, wallet, {}] = await connectToGanache();
 
-  const relevantArtifacts = [
-    { contractName: "AppRegistry", ...AppRegistry },
-    { contractName: "ETHBucket", ...ETHBucket },
-    { contractName: "StateChannelTransaction", ...StateChannelTransaction },
-    { contractName: "NonceRegistry", ...NonceRegistry },
-    { contractName: "MultiSend", ...MultiSend },
-    { contractName: "ETHVirtualAppAgreement", ...ETHVirtualAppAgreement }
-    // todo: add more
-  ];
+  network = makeNetworkContext();
 
-  network = {
-    ETHBalanceRefundApp: AddressZero,
-    ...relevantArtifacts.reduce(
-      (accumulator: { [x: string]: string }, artifact: WaffleLegacyOutput) => ({
-        ...accumulator,
-        [artifact.contractName as string]: artifact.networks![networkId].address
-      }),
-      {}
-    )
-  } as NetworkContext;
 
   appDefinition = await new ContractFactory(
     ResolveToPay5WeiApp.abi,
