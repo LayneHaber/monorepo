@@ -15,8 +15,8 @@ import { xkeysToSortedKthSigningKeys } from "../../src/xkeys";
 
 import { toBeEq } from "./bignumber-jest-matcher";
 import { connectToGanache } from "./connect-ganache";
-import { getRandomHDNodes } from "./random-signing-keys";
 import { makeNetworkContext } from "./make-network-context";
+import { getRandomHDNodes } from "./random-signing-keys";
 
 // To be honest, 30000 is an arbitrary large number that has never failed
 // to reach the done() call in the test case, not intelligently chosen

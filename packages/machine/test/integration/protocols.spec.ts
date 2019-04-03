@@ -9,9 +9,9 @@ import { bigNumberify } from "ethers/utils";
 
 import { toBeEq } from "./bignumber-jest-matcher";
 import { connectToGanache } from "./connect-ganache";
+import { makeNetworkContext } from "./make-network-context";
 import { MessageRouter } from "./message-router";
 import { MiniNode } from "./mininode";
-import { makeNetworkContext } from "./make-network-context";
 
 const JEST_TEST_WAIT_TIME = 50000;
 
@@ -26,7 +26,6 @@ beforeAll(async () => {
   [provider, wallet, {}] = await connectToGanache();
 
   network = makeNetworkContext();
-
 
   appDefinition = await new ContractFactory(
     ResolveToPay5WeiApp.abi,

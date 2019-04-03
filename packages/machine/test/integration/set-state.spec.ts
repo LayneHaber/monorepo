@@ -1,4 +1,5 @@
 import AppRegistry from "@counterfactual/contracts/build/AppRegistry.json";
+import { makeNetworkContext } from "@counterfactual/machine/test/integration/make-network-context";
 import { AssetType, NetworkContext } from "@counterfactual/types";
 import { Contract, Wallet } from "ethers";
 import { AddressZero, WeiPerEther } from "ethers/constants";
@@ -11,7 +12,6 @@ import { toBeEq } from "./bignumber-jest-matcher";
 import { connectToGanache } from "./connect-ganache";
 import { getRandomHDNodes } from "./random-signing-keys";
 import { WaffleLegacyOutput } from "./waffle-type";
-import { makeNetworkContext } from "@counterfactual/machine/test/integration/make-network-context";
 
 // To be honest, 30000 is an arbitrary large number that has never failed
 // to reach the done() call in the test case, not intelligently chosen
