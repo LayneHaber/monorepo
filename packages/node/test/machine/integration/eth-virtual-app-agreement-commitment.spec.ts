@@ -59,10 +59,12 @@ beforeAll(async () => {
     // Fetches the values from build artifacts of the contracts needed
     // for this test and sets the ones we don't care about to 0x0
     ...relevantArtifacts.reduce(
-      (accumulator: { [x: string]: string }, artifact: WaffleLegacyOutput) => ({
+      (accumulator: { [x: string]: string }, artifact: WaffleLegacyOutput) => {
+        console.log(Object.keys(artifact), artifact.networks);
+        return {
         ...accumulator,
         [artifact.contractName as string]: artifact.networks![networkId].address
-      }),
+      }},
       {}
     )
   } as NetworkContext;
